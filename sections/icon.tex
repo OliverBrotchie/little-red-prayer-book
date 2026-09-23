@@ -3,6 +3,10 @@
 % ornament and icon are one picture, so they need no overlay pass to line up.
 % No rule runs down either side.
 \thispagestyle{empty}
+% The head above the icon is taller than the leaves below it, so centring the
+% plate leaves the icon itself sitting low. Shortening the page by 4mm lifts the
+% plate by 2mm, which puts the icon on the centre and the ornaments around it.
+\enlargethispage{-4mm}
 \vspace*{\fill}
 \begin{center}
 \begin{tikzpicture}
