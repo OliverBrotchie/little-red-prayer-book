@@ -52,9 +52,10 @@ entry in the contents.
 
 ## One ink
 
-The book uses black only, which is why rubrics are italic rather than red and
-why heading levels are told apart by weight and small caps. Any replacement
-icon has to be greyscale for the same reason.
+The book uses black only, which is why rubrics are italic and a step smaller
+than the body, prayer titles are bold small caps, and section titles are bold
+small caps a size up. Any replacement icon has to be greyscale for the same
+reason.
 
 ## Sources
 

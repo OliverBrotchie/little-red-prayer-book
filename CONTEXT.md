@@ -26,7 +26,8 @@ the markup.
 _Avoid_: using the two interchangeably
 
 **Rubric**:
-An instruction to the reader, set in italic and not itself prayed.
+An instruction to the reader, set in italic a step smaller than the body and not
+itself prayed.
 _Avoid_: instruction, note, direction
 
 **Prayer title**:

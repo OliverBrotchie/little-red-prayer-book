@@ -1,12 +1,17 @@
 % Common formatting commands.
 % The book is printed in one ink, so hierarchy is carried by size, weight and
-% small caps rather than colour: instructions are italic, prayer titles plain
-% small caps, section titles bold small caps.
+% small caps. Colour used to mark rubrics and prayer titles, and without it a
+% black italic line is easily mistaken for prayer text, so rubrics drop a step
+% in size and prayer titles take the bold face.
 
-% rubric / instruction text. The reserve keeps the rubric with the first lines
-% of what it introduces; without it a rubric can be left alone at the foot of a
-% page.
-\newcommand{\rubric}[1]{{\itshape #1}}
+% heading face: bold small caps, letter-spaced
+\newcommand{\headingfont}{\bfseries\scshape\addfontfeature{LetterSpace=6}}
+
+% rubric / instruction text, a step down from the body. The reserve keeps the
+% rubric with the first lines of what it introduces; without it a rubric can be
+% left alone at the foot of a page.
+\newcommand{\rubricsize}{\fontsize{8.5}{10.5}\selectfont}
+\newcommand{\rubric}[1]{{\rubricsize\itshape #1}}
 \newcommand{\rubricline}[1]{\par\vspace{0.6em}\rubric{#1}\par\vspace{0.3em}}
 \newcommand{\instruction}[1]{\needspace{5\baselineskip}\rubricline{#1}}
 % a rubric that introduces a prayer title: reserve for the rubric and for the
@@ -14,10 +19,10 @@
 \newcommand{\instructionheading}[1]{\needspace{10\baselineskip}\rubricline{#1}}
 
 % label over a prayer, kept with the text it introduces
-\newcommand{\theotokion}{\needspace{5\baselineskip}\rubric{Theotokion}}
+\newcommand{\theotokion}{\needspace{5\baselineskip}{\headingfont Theotokion}}
 
-% prayer title heading (centred small caps)
-\newcommand{\prayer}[1]{\needspace{10\baselineskip}\par\vspace{0.3em}\begin{center}{\normalsize\scshape\addfontfeature{LetterSpace=6} #1}\end{center}}
+% prayer title heading, centred
+\newcommand{\prayer}[1]{\needspace{10\baselineskip}\par\vspace{0.3em}\begin{center}{\headingfont\normalsize #1}\end{center}}
 
 \newcommand{\refrain}[1]{\par\vspace{0.4em}\textit{#1}\par\vspace{0.4em}}
 

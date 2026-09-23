@@ -17,8 +17,8 @@ likely to pray at home, in a form cheap enough to give away.
 
 - A6, 105 mm by 148 mm, LuaLaTeX.
 - 9pt body on a 11pt leading. TeX Gyre Pagella throughout.
-- One ink. Rubrics are italic, prayer titles small caps, section titles bold
-  small caps.
+- One ink. Rubrics are italic a step smaller than the body, prayer titles bold
+  small caps, section titles bold small caps a size up.
 - 12 mm inner margin, 8 mm outer, 11 mm head, 13 mm foot.
 - Running header naming the service, and a folio at the foot. Section openings
   and the front matter carry the folio alone.

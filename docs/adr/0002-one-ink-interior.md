@@ -1,9 +1,9 @@
 # The interior prints in one ink
 
-The inside of the book uses black only. Rubrics are italic, prayer titles are
-small caps, and section titles are bold small caps, so the three levels are told
-apart by weight and letterform instead of colour. The icon is converted to
-greyscale.
+The inside of the book uses black only. Rubrics are italic a step smaller than
+the body, prayer titles are bold small caps, and section titles are bold small
+caps a size up, so the levels are told apart by size, weight and letterform
+instead of colour. The icon is converted to greyscale.
 
 Why: a second ink raises the unit price of a short run, and this book exists to
 be handed out cheaply. Dropping colour also removes the risk of a print shop
