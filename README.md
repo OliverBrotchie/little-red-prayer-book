@@ -35,8 +35,8 @@ python3 tools/check_headings.py build/little-red-prayer-book.pdf     # no strand
 7. Thanksgiving after Holy Communion
 
 Every service begins on a fresh page. The icon page carries no heading and no
-entry in the contents. The icon sits inside a single rule border, with a flower
-at the middle of the top and bottom rules. The book ends with the
+entry in the contents. The icon sits between a top rule carrying a plume over a
+circle and a plain bottom rule. The book ends with the
 line-and-star flair, printed only when the last page has room for it, so a
 decoration never costs a page.
 

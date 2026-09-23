@@ -1,21 +1,20 @@
-% Icon of Saint Andrew the First-Called: no title, centred, in a single rule
-% border with a flower at the middle of the top and bottom rules. The whole
-% plate is one picture, so the rule and the flowers share a coordinate system
-% and need no overlay pass to line up.
+% Icon of Saint Andrew the First-Called: no title, centred, between a top rule
+% carrying a thistle and a plain bottom rule. The emblem is Scotland's, whose
+% patron he is. Rules, thistle and icon are one picture, so they need no overlay
+% pass to line up. No rule runs down either side.
 \thispagestyle{empty}
 \vspace*{\fill}
 \begin{center}
 \begin{tikzpicture}
   \node[inner sep=0pt] (icon) {\includegraphics[width=68mm]{assets/icon.jpg}};
 
+  \draw[line width=0.5pt] ([shift={(-4mm,4mm)}]icon.north west)
+    -- ([shift={(4mm,4mm)}]icon.north east);
   \draw[line width=0.5pt] ([shift={(-4mm,-4mm)}]icon.south west)
-    rectangle ([shift={(4mm,4mm)}]icon.north east);
+    -- ([shift={(4mm,-4mm)}]icon.south east);
 
-  \coordinate (toporn) at ([shift={(0,4mm)}]icon.north);
-  \coordinate (botorn) at ([shift={(0,-4mm)}]icon.south);
-
-  \floralornament{toporn}{yscale=1}
-  \floralornament{botorn}{yscale=-1}
+  \coordinate (ornament) at ([shift={(0,4mm)}]icon.north);
+  \plumeornament{ornament}
 \end{tikzpicture}
 \end{center}
 \vspace*{\fill}

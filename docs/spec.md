@@ -32,8 +32,9 @@ likely to pray at home, in a form cheap enough to give away.
 
 1. Title page, "Little Red Prayer Book", with a line-and-star flair above the
    subtitle "St Andrew's Orthodox Community Edinburgh".
-2. Icon of Saint Andrew the First-Called, full page and greyscale, inside a
-   single rule border with a flower at the middle of the top and bottom rules.
+2. Icon of Saint Andrew the First-Called, full page and greyscale, between a top
+   rule carrying a plume over a circle and a plain bottom rule. No rule runs
+   down either side.
 3. Contents.
 4. Morning Prayers (p. 4).
 5. Small Compline (p. 13).
@@ -85,9 +86,10 @@ held in `edinburgh-orthodox.org.uk`, and is converted to greyscale here.
 10. **"Both now and for ever" is capitalised where it stands alone** and lower
    case where it follows Glory to the Father in one sentence. One macro holds
    the words, so the two forms cannot drift apart.
-11. **The icon plate is one TikZ picture.** The rule and the flowers share a
-   coordinate system, so they line up without an overlay pass. TikZ is the only
-   drawing package in the book, and it draws nothing else.
+11. **The icon plate is one TikZ picture.** The rules and the ornament share a
+   coordinate space, so they line up without an overlay pass. TikZ is the only
+   drawing package in the book, and it draws nothing else. The ornament is a
+   plume over a circle, drawn as bristles out of the circle's head.
 
 ## Build
 
