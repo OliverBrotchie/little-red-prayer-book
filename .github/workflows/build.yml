@@ -19,12 +19,12 @@ jobs:
       - name: Install ghostscript, python3 and git
         run: apt-get update -qq && apt-get install -y -qq ghostscript python3 git
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Build the book
         run: ./build.sh
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: little-red-prayer-book
           path: build/little-red-prayer-book.pdf
@@ -34,13 +34,13 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: little-red-prayer-book
           path: build
 
       - name: Publish the PDF as a release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: v${{ github.run_number }}
           name: Little Red Prayer Book v${{ github.run_number }}
