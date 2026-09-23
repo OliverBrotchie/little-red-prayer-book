@@ -85,16 +85,16 @@
 }
 
 % A fan of four small leaves below a rule: four blades sharing a base on the
-% rule. The blades are narrower than petals and each carries a vein, which is
-% what keeps the group reading as leaves rather than a flower.
+% rule, spread so none hangs close to upright, each carrying a vein. The spread
+% is what keeps the group reading as leaves rather than as flower petals.
 % #1 is the coordinate where the fan meets the rule; #2 is a transform,
 % yscale=1 for a fan above a rule and yscale=-1 for one below it.
 \newcommand{\leaffanornament}[2]{%
   \begin{scope}[shift={(#1)}, #2]
     \foreach \a in {-48, -16, 16, 48}{%
       \draw[line width=0.4pt, rotate=\a]
-        (0,0) .. controls (0.6mm,0.8mm) and (0.6mm,2.1mm) .. (0,2.9mm)
-              .. controls (-0.6mm,2.1mm) and (-0.6mm,0.8mm) .. (0,0);
+        (0,0) .. controls (0.55mm,0.8mm) and (0.55mm,2.1mm) .. (0,2.9mm)
+              .. controls (-0.55mm,2.1mm) and (-0.55mm,0.8mm) .. (0,0);
       \draw[line width=0.3pt, rotate=\a] (0,0) -- (0,2.65mm);}
   \end{scope}
 }
