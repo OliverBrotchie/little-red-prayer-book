@@ -1,13 +1,31 @@
 % Icon of Saint Andrew the First-Called: no title, centred, in a double rule
-% border. The two rules come from nested boxes, which need nothing beyond the
-% box primitives already in use. The inner rule is set at zero separation so the
-% gap is the outer box's \fboxsep alone.
+% border with a fan ornament at the middle of the top and bottom rules. The
+% whole plate is one picture, so the rules and the fans share a coordinate
+% system and need no overlay pass to line up.
 \thispagestyle{empty}
 \vspace*{\fill}
 \begin{center}
-{\setlength{\fboxrule}{1pt}\setlength{\fboxsep}{3.5mm}%
-  \fbox{\setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{0pt}%
-    \fbox{\includegraphics[width=68mm]{assets/icon.jpg}}}}
+\begin{tikzpicture}
+  \node[inner sep=0pt] (icon) {\includegraphics[width=68mm]{assets/icon.jpg}};
+
+  \draw[line width=0.4pt] ([shift={(-3.5mm,-3.5mm)}]icon.south west)
+    rectangle ([shift={(3.5mm,3.5mm)}]icon.north east);
+  \draw[line width=1pt] ([shift={(-6mm,-6mm)}]icon.south west)
+    rectangle ([shift={(6mm,6mm)}]icon.north east);
+
+  \coordinate (topfan) at ([shift={(0,6mm)}]icon.north);
+  \coordinate (botfan) at ([shift={(0,-6mm)}]icon.south);
+
+  % three nested arcs, drawn outward from the rule, with the folds between them
+  \foreach \r in {2.2mm, 3.8mm, 5.4mm} {
+    \draw[line width=0.4pt, shift={(topfan)}] (-\r,0) arc (180:0:\r);
+    \draw[line width=0.4pt, shift={(botfan)}] (\r,0) arc (0:-180:\r);
+  }
+  \foreach \a in {30, 60, 90, 120, 150} {
+    \draw[line width=0.4pt, shift={(topfan)}] (\a:5.4mm) -- (0,0);
+    \draw[line width=0.4pt, shift={(botfan)}] (\a:5.4mm) -- (0,0);
+  }
+\end{tikzpicture}
 \end{center}
 \vspace*{\fill}
 \newpage

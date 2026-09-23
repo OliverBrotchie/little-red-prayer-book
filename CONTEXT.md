@@ -66,5 +66,6 @@ _Avoid_: signature
 
 **Icon plate**:
 The full-page greyscale icon of Saint Andrew the First-Called after the title
-page. It carries no heading and no contents entry.
+page, inside a double rule border with a fan ornament at the middle of the top
+and bottom rules. It carries no heading and no contents entry.
 _Avoid_: frontispiece, image, illustration
