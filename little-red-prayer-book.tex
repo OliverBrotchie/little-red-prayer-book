@@ -8,8 +8,14 @@
 % ---------- Page geometry: A6, 105 x 148 mm ----------
 % The inner margin carries the binder's gutter; the outer stays narrow so the
 % text block keeps its width on a page this small.
+%
+% head and headsep belong in these options, not in \setlength calls below:
+% geometry places the running header from the values it sees when the package
+% loads, so a later \setlength moves the body up into the header instead.
+% includehead makes top the distance to the top of the header.
 \usepackage[twoside,paperwidth=105mm,paperheight=148mm,
-            top=11mm,bottom=13mm,inner=12mm,outer=8mm]{geometry}
+            top=10mm,head=12pt,headsep=6pt,includehead,
+            bottom=10mm,includefoot,foot=8pt,inner=12mm,outer=8mm]{geometry}
 
 % ---------- Fonts ----------
 \usepackage{fontspec}
@@ -63,8 +69,6 @@
 \widowpenalty=10000
 \clubpenalty=10000
 
-\setlength{\headheight}{12pt}
-\setlength{\headsep}{8pt}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[C]{\footnotesize\scshape\leftmark}

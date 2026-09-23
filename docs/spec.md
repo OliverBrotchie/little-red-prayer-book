@@ -5,7 +5,7 @@ ink for handing out.
 
 ## Status
 
-Built. `./build.sh` writes `build/little-red-prayer-book.pdf`, 52 pages, no
+Built. `./build.sh` writes `build/little-red-prayer-book.pdf`, 56 pages, no
 stranded headings.
 
 ## Purpose
@@ -19,22 +19,28 @@ likely to pray at home, in a form cheap enough to give away.
 - 9pt body on a 11pt leading. TeX Gyre Pagella throughout.
 - One ink. Rubrics are italic a step smaller than the body, prayer titles bold
   small caps, section titles bold small caps a size up.
-- 12 mm inner margin, 8 mm outer, 11 mm head, 13 mm foot.
+- 12 mm inner margin, 8 mm outer, which alternate on facing pages.
+- A 10 mm head margin and a 10 mm foot margin, both measured to the running
+  header and to the folio rather than to the text block, so the header and the
+  page number clear the trim.
 - Running header naming the service, and a folio at the foot. Section openings
   and the front matter carry the folio alone.
-- Padded to a multiple of four pages, currently exactly 52, so the run folds
-  into whole sheets whichever binding is chosen.
+- Padded to a multiple of four pages, currently 56, so the run folds into whole
+  sheets whichever binding is chosen.
 
 ## Structure
 
-1. Title page, "Little Red Prayer Book", with the subtitle "St Andrew's
-   Orthodox Community Edinburgh".
-2. Icon of Saint Andrew the First-Called, full page, greyscale.
+1. Title page, "Little Red Prayer Book", with a line-and-star flair above the
+   subtitle "St Andrew's Orthodox Community Edinburgh".
+2. Icon of Saint Andrew the First-Called, full page and greyscale, framed by a
+   flair above and below.
 3. Contents.
 4. Morning Prayers (p. 4).
 5. Small Compline (p. 13).
-6. Preparation for Holy Communion (p. 25).
-7. Thanksgiving after Holy Communion (p. 46).
+6. Preparation for Holy Communion (p. 26), whose canon of preparation carries
+   its ode numbers: Ode 1, 3, 4, 5, 6, Kontakion, 7, 8, 9.
+7. Thanksgiving after Holy Communion (p. 47).
+8. Closing plate: the flair alone, since the last page of text runs to the foot.
 
 ## Sources
 
@@ -42,7 +48,11 @@ The four services follow the prayer book of the Archdiocese of Thyateira and
 Great Britain, which is based on the translations of Archimandrite Ephrem Lash.
 The texts were carried over from the St Kallistos booklet, which used the same
 source, and are unchanged apart from the heading reserves that the smaller page
-needed.
+needed and the ode numbers restored to the canon of preparation.
+
+The ode numbers and the Kontakion label were taken from the first committed
+version of the text, which carried them as `\instruction` lines with the
+heirmos incipits; a later edit dropped them.
 
 The icon of Saint Andrew the First-Called came from the parish's own artwork,
 held in `edinburgh-orthodox.org.uk`, and is converted to greyscale here.
@@ -61,6 +71,14 @@ held in `edinburgh-orthodox.org.uk`, and is converted to greyscale here.
    so the two are never split.
 6. **The heading check runs on every build** and fails it, rather than printing
    a warning, because a stranded heading is invisible until the book is printed.
+7. **The canon of preparation carries its ode numbers**, restored from the first
+   committed version of the text, which had lost them in a later edit. The
+   Kontakion that falls between Ode 6 and Ode 7 is labelled with them, so the
+   start of Ode 7 is unambiguous.
+8. **Head and foot lengths live in the geometry options**, not in `\setlength`
+   calls after the package loads. Geometry places the running header from the
+   values it sees when it loads, so a later `\setlength` moves the body up into
+   the header and clips it at the trim.
 
 ## Build
 

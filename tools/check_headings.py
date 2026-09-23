@@ -31,7 +31,7 @@ def headings():
     found = set()
     for path in (ROOT / 'sections').glob('*.tex'):
         text = path.read_text()
-        for m in re.finditer(r'\\(prayer|instruction|instructionheading|section)\{([^}]*)\}', text):
+        for m in re.finditer(r'\\(prayer|instruction|instructionheading|canonlabel|section)\{([^}]*)\}', text):
             found.add(re.sub(r'[^a-z0-9]', '', m.group(2).lower()))
         if '\\theotokion' in text:
             found.add('theotokion')

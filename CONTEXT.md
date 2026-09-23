@@ -47,6 +47,18 @@ Black only, no colour on any page. What the book is printed with, and the reason
 the heading levels differ by weight rather than colour.
 _Avoid_: monochrome, greyscale (the icon is greyscale, the book is one ink)
 
+**Flair**:
+The ornament of a line, a star and a line that marks the title page, frames the
+icon above and below, and closes the book on its own plate. Held in
+`commands/formatting.tex` as `\ornarule`, whose optional argument sets how much
+of the text width each line takes.
+_Avoid_: rule, divider, ornament, dingbat
+
+**Division label**:
+The centred label that marks an ode, or the Kontakion, inside the canon of
+preparation. Set as a heading so it is not read as prayer text.
+_Avoid_: ode heading, subheading
+
 **Sheet**:
 Four A6 pages, two on each side of one A4 sheet folded once. The page count is
 kept on a multiple of four so a folded run has no half sheet.

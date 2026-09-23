@@ -15,8 +15,9 @@ LuaLaTeX with TeX Live, plus `gs` and Python 3 for the heading check.
 ./build.sh imposed      # then A4 sheets in fold order
 ```
 
-The finished PDF lands in `build/`. The book is 52 pages, which is thirteen
-sheets folded, so the run needs no blank filler:
+The finished PDF lands in `build/`. The book is 56 pages, which is fourteen
+sheets folded; the build pads the run to whole sheets, so an edit that lands off
+a multiple of four adds blank leaves at the back:
 
 ```bash
 gs -o - -sDEVICE=inkcov build/little-red-prayer-book.pdf | sort -u   # one ink
@@ -34,7 +35,9 @@ python3 tools/check_headings.py build/little-red-prayer-book.pdf     # no strand
 7. Thanksgiving after Holy Communion
 
 Every service begins on a fresh page. The icon page carries no heading and no
-entry in the contents.
+entry in the contents, and a line-and-star flair frames the icon above and
+below. The book closes on a plate carrying the same flair, since the last page
+of text runs to the foot and cannot hold it.
 
 ## Layout
 

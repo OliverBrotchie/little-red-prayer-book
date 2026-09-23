@@ -13,22 +13,29 @@
 \newcommand{\rubricsize}{\fontsize{8.5}{10.5}\selectfont}
 \newcommand{\rubric}[1]{{\rubricsize\itshape #1}}
 \newcommand{\rubricline}[1]{\par\vspace{0.6em}\rubric{#1}\par\vspace{0.3em}}
-\newcommand{\instruction}[1]{\needspace{5\baselineskip}\rubricline{#1}}
+\newcommand{\instruction}[1]{\needspace{6\baselineskip}\rubricline{#1}}
 % a rubric that introduces a prayer title: reserve for the rubric and for the
 % title's own reserve, so the two never part company across a page break
-\newcommand{\instructionheading}[1]{\needspace{10\baselineskip}\rubricline{#1}}
+\newcommand{\instructionheading}[1]{\needspace{11\baselineskip}\rubricline{#1}}
 
 % label over a prayer, kept with the text it introduces
 \newcommand{\theotokion}{\needspace{5\baselineskip}{\headingfont Theotokion}}
 
+% a division inside the canon of preparation: an ode number, or the kontakion
+\newcommand{\canonlabel}[1]{\needspace{6\baselineskip}\par\vspace{0.8em}\begin{center}{\headingfont\normalsize #1}\end{center}}
+
 % prayer title heading, centred
-\newcommand{\prayer}[1]{\needspace{10\baselineskip}\par\vspace{0.3em}\begin{center}{\headingfont\normalsize #1}\end{center}}
+\newcommand{\prayer}[1]{\needspace{8\baselineskip}\par\vspace{0.3em}\begin{center}{\headingfont\normalsize #1}\end{center}}
 
 \newcommand{\refrain}[1]{\par\vspace{0.4em}\textit{#1}\par\vspace{0.4em}}
 
-% ornamental rule
-\newcommand{\ornarule}{%
-  \begin{center}
-  \rule{0.28\textwidth}{0.4pt}\raisebox{-2.58pt}{\,\footnotesize \ding{85}\,}\rule{0.28\textwidth}{0.4pt}
-  \end{center}
+% ornamental rule: line, star, line. The optional argument is the fraction of
+% the text width taken by each line, so a flair can be matched to what it frames.
+% It is set as one line of a paragraph rather than inside a center environment:
+% a list injects its own breakpoint, which lets the rule be torn away from the
+% text it should close.
+\newcommand{\ornarule}[1][0.28]{%
+  \par\noindent\hspace*{\fill}%
+  \rule{#1\textwidth}{0.4pt}\raisebox{-2.58pt}{\,\footnotesize \ding{85}\,}\rule{#1\textwidth}{0.4pt}%
+  \hspace*{\fill}\par
 }

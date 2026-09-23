@@ -1,8 +1,9 @@
 # A6 with a gutter that suits either binding
 
 The book is A6, 105 mm by 148 mm, with a 12 mm inner margin and an 8 mm outer
-one, and the run is padded to a multiple of four pages. It is small enough to
-carry in a coat pocket and cheap enough to give away.
+one, a 10 mm head margin and a 10 mm foot margin measured to the running header
+and to the folio, and the run is padded to a multiple of four pages. It is small
+enough to carry in a coat pocket and cheap enough to give away.
 
 Why: the binding is not settled. A stapled booklet needs whole sheets and no
 gutter, a glued one needs a gutter and can end on any page. A 4 mm gutter costs
