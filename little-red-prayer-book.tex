@@ -1,0 +1,105 @@
+\documentclass[9pt]{extarticle}
+
+% ---------- Build padding ----------
+% The build script passes a blank-page count so the print run ends on a whole
+% sheet, whatever the binding.
+\providecommand{\buildpad}{0}
+
+% ---------- Page geometry: A6, 105 x 148 mm ----------
+% The inner margin carries the binder's gutter; the outer stays narrow so the
+% text block keeps its width on a page this small.
+\usepackage[twoside,paperwidth=105mm,paperheight=148mm,
+            top=11mm,bottom=13mm,inner=12mm,outer=8mm]{geometry}
+
+% ---------- Fonts ----------
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage{pifont}
+\usepackage{marvosym}
+
+% ---------- Section heading styling ----------
+\titleformat{\section}
+  {\centering\normalfont\large\bfseries\scshape\addfontfeature{LetterSpace=8}}
+  {}{0pt}{}[\thispagestyle{plain}]
+\titlespacing*{\section}{0pt}{0pt}{1.0em}
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{1}
+
+% ---------- Footnote styling ----------
+\renewcommand{\footnotesize}{\fontsize{7.5}{9}\selectfont}
+\renewcommand{\thefootnote}{\Cross}
+
+% ---------- Dotted leaders in the contents ----------
+\usepackage[hidelinks,bookmarks=true,bookmarksopen=false]{hyperref}
+\makeatletter
+\patchcmd\l@section{%
+  \nobreak\hfil\nobreak
+}{%
+  \nobreak
+  \leaders\hbox{%
+    $\m@th \mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$%
+  }%
+  \hfill
+  \nobreak
+}{}{\errmessage{\noexpand\l@section could not be patched}}
+\patchcmd{\l@section}{\addvspace{1.0em \@plus\p@}}{\addvspace{0.2em \@plus\p@}}{}{}
+% in-text footnote mark and footer mark: a cross
+\renewcommand{\@makefnmark}{\textsuperscript{\Cross}}
+\renewcommand{\@makefntext}[1]{%
+  \parindent 1em\noindent
+  \hb@xt@1.8em{\hss\Cross\enspace}#1}
+\makeatother
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{3em}
+% do not open or close a paragraph with a single line
+\widowpenalty=10000
+\clubpenalty=10000
+
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{8pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\footnotesize\scshape\leftmark}
+\fancyfoot[C]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\footnotesize\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+\begin{document}
+
+\input{commands/formatting.tex}
+\input{commands/prayers.tex}
+
+\input{sections/title.tex}
+\input{sections/icon.tex}
+
+{\small\tableofcontents}
+\thispagestyle{plain}
+\newpage
+
+% paragraph spacing for the prayer services
+\setlength{\parskip}{3pt}
+
+\input{sections/morning-prayers.tex}
+\input{sections/small-compline.tex}
+\input{sections/preparation-for-communion.tex}
+\input{sections/thanksgiving.tex}
+
+% ---------- pad the run out to whole sheets ----------
+% \newpage comes first in the body: it closes the last page of text, so each
+% iteration appends exactly one blank page rather than flushing the page before it.
+\newcount\padremaining
+\padremaining=\buildpad
+\loop\ifnum\padremaining>0
+  \newpage\null\thispagestyle{empty}%
+  \advance\padremaining by -1
+\repeat
+
+\end{document}

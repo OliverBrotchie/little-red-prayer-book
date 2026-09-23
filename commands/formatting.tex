@@ -1,0 +1,29 @@
+% Common formatting commands.
+% The book is printed in one ink, so hierarchy is carried by size, weight and
+% small caps rather than colour: instructions are italic, prayer titles plain
+% small caps, section titles bold small caps.
+
+% rubric / instruction text. The reserve keeps the rubric with the first lines
+% of what it introduces; without it a rubric can be left alone at the foot of a
+% page.
+\newcommand{\rubric}[1]{{\itshape #1}}
+\newcommand{\rubricline}[1]{\par\vspace{0.6em}\rubric{#1}\par\vspace{0.3em}}
+\newcommand{\instruction}[1]{\needspace{5\baselineskip}\rubricline{#1}}
+% a rubric that introduces a prayer title: reserve for the rubric and for the
+% title's own reserve, so the two never part company across a page break
+\newcommand{\instructionheading}[1]{\needspace{10\baselineskip}\rubricline{#1}}
+
+% label over a prayer, kept with the text it introduces
+\newcommand{\theotokion}{\needspace{5\baselineskip}\rubric{Theotokion}}
+
+% prayer title heading (centred small caps)
+\newcommand{\prayer}[1]{\needspace{10\baselineskip}\par\vspace{0.3em}\begin{center}{\normalsize\scshape\addfontfeature{LetterSpace=6} #1}\end{center}}
+
+\newcommand{\refrain}[1]{\par\vspace{0.4em}\textit{#1}\par\vspace{0.4em}}
+
+% ornamental rule
+\newcommand{\ornarule}{%
+  \begin{center}
+  \rule{0.28\textwidth}{0.4pt}\raisebox{-2.58pt}{\,\footnotesize \ding{85}\,}\rule{0.28\textwidth}{0.4pt}
+  \end{center}
+}

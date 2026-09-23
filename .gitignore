@@ -1,0 +1,17 @@
+# Ignore any reference texts
+*.pdf
+*.txt
+*.docx
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+
+# Source scans of the printed books
+*.zip
+
+# macOS
+.DS_Store

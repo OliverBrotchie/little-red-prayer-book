@@ -1,0 +1,47 @@
+name: Build PDF and publish release
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # The book needs LuaLaTeX with TeX Live; the image ships it, and the step
+    # before checkout installs the rest, including git, which checkout needs.
+    container: texlive/texlive:latest
+    steps:
+      - name: Install ghostscript, python3 and git
+        run: apt-get update -qq && apt-get install -y -qq ghostscript python3 git
+
+      - uses: actions/checkout@v4
+
+      - name: Build the book
+        run: ./build.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: little-red-prayer-book
+          path: build/little-red-prayer-book.pdf
+
+  release:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: little-red-prayer-book
+          path: build
+
+      - name: Publish the PDF as a release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Little Red Prayer Book v${{ github.run_number }}
+          files: build/little-red-prayer-book.pdf
