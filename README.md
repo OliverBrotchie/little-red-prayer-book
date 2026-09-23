@@ -15,9 +15,10 @@ LuaLaTeX with TeX Live, plus `gs` and Python 3 for the heading check.
 ./build.sh imposed      # then A4 sheets in fold order
 ```
 
-The finished PDF lands in `build/`. The book is 56 pages, which is fourteen
-sheets folded; the build pads the run to whole sheets, so an edit that lands off
-a multiple of four adds blank leaves at the back:
+The finished PDF lands in `build/`. The book is 54 pages. The build pads the
+run to a multiple of two, which is all a trimmed or glued book needs, so an edit
+can leave one blank leaf at the back; `PAD=4 ./build.sh` pads to whole folded
+sheets instead, which stapling needs:
 
 ```bash
 gs -o - -sDEVICE=inkcov build/little-red-prayer-book.pdf | sort -u   # one ink
@@ -26,20 +27,19 @@ python3 tools/check_headings.py build/little-red-prayer-book.pdf     # no strand
 
 ## Contents
 
-1. Title page
+1. Title page, with the year at the foot
 2. Icon of Saint Andrew the First-Called
-3. Contents
+3. Contents, with the introduction beneath it
 4. Morning Prayers
 5. Small Compline
 6. Preparation for Holy Communion
 7. Thanksgiving after Holy Communion
 
 Every service begins on a fresh page. The icon page carries no heading and no
-entry in the contents. The icon sits between a top rule carrying a plume over a
-small circle on a stem, with a leaf to either side, and a plain bottom rule. The
-book ends with the
-line-and-star flair, printed only when the last page has room for it, so a
-decoration never costs a page.
+entry in the contents. The icon sits between a top rule carrying a thistle head
+and a bottom rule carrying a fan of four small leaves, and no rule runs down
+either side. The book ends with the line-and-star flair, printed only when the
+last page has room for it, so a decoration never costs a page.
 
 ## Layout
 

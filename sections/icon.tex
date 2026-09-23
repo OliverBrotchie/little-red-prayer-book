@@ -1,7 +1,7 @@
 % Icon of Saint Andrew the First-Called: no title, centred, between a top rule
-% carrying a thistle and a plain bottom rule. The emblem is Scotland's, whose
-% patron he is. Rules, thistle and icon are one picture, so they need no overlay
-% pass to line up. No rule runs down either side.
+% carrying a thistle head and a bottom rule carrying a fan of leaves. Rules,
+% ornament and icon are one picture, so they need no overlay pass to line up.
+% No rule runs down either side.
 \thispagestyle{empty}
 \vspace*{\fill}
 \begin{center}
@@ -13,8 +13,11 @@
   \draw[line width=0.5pt] ([shift={(-4mm,-4mm)}]icon.south west)
     -- ([shift={(4mm,-4mm)}]icon.south east);
 
-  \coordinate (ornament) at ([shift={(0,4mm)}]icon.north);
-  \plumeornament{ornament}
+  \coordinate (head) at ([shift={(0,4mm)}]icon.north);
+  \plumeornament{head}
+
+  \coordinate (fan) at ([shift={(0,-4mm)}]icon.south);
+  \leaffanornament{fan}{yscale=-1}
 \end{tikzpicture}
 \end{center}
 \vspace*{\fill}

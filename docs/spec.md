@@ -5,7 +5,7 @@ ink for handing out.
 
 ## Status
 
-Built. `./build.sh` writes `build/little-red-prayer-book.pdf`, 56 pages, no
+Built. `./build.sh` writes `build/little-red-prayer-book.pdf`, 54 pages, no
 stranded headings.
 
 ## Purpose
@@ -25,17 +25,18 @@ likely to pray at home, in a form cheap enough to give away.
   page number clear the trim.
 - Running header naming the service, and a folio at the foot. Section openings
   and the front matter carry the folio alone.
-- Padded to a multiple of four pages, currently 56, so the run folds into whole
-  sheets whichever binding is chosen.
+- Padded to a multiple of two pages, currently 54, which is all a trimmed or
+  glued book needs. `PAD=4 ./build.sh` pads to whole folded sheets for stapling.
 
 ## Structure
 
 1. Title page, "Little Red Prayer Book", with a line-and-star flair above the
-   subtitle "St Andrew's Orthodox Community Edinburgh".
+   subtitle "St Andrew's Orthodox Community Edinburgh", and the year at the
+   foot.
 2. Icon of Saint Andrew the First-Called, full page and greyscale, between a top
-   rule carrying a plume over a small circle on a stem, with a leaf to either
-   side, and a plain bottom rule. No rule runs down either side.
-3. Contents.
+   rule carrying a thistle head and a bottom rule carrying a fan of four small
+   leaves. No rule runs down either side.
+3. Contents, with the introduction set beneath it on the same page.
 4. Morning Prayers (p. 4).
 5. Small Compline (p. 13).
 6. Preparation for Holy Communion (p. 26), whose canon of preparation carries
@@ -57,6 +58,9 @@ heirmos incipits; a later edit dropped them.
 
 The icon of Saint Andrew the First-Called came from the parish's own artwork,
 held in `edinburgh-orthodox.org.uk`, and is converted to greyscale here.
+
+The introduction on the contents page is set from the text supplied for this
+edition. It quotes Saint John Chrysostom on prayer.
 
 ## Decisions
 
@@ -86,11 +90,18 @@ held in `edinburgh-orthodox.org.uk`, and is converted to greyscale here.
 10. **"Both now and for ever" is capitalised where it stands alone** and lower
    case where it follows Glory to the Father in one sentence. One macro holds
    the words, so the two forms cannot drift apart.
-11. **The icon plate is one TikZ picture.** The rules and the ornament share a
+11. **The icon plate is one TikZ picture.** The rules and the ornaments share a
    coordinate space, so they line up without an overlay pass. TikZ is the only
-   drawing package in the book, and it draws nothing else. The ornament is a
-   stem, a circle, bristles rising from an arc inside the circle, and a serrated
-   leaf to either side.
+   drawing package in the book, and it draws nothing else. Above the icon sits a
+   thistle head: two veined leaves, a thick stem, a calyx filled with clipped
+   scale arcs, and a plume ribbed to its edge. Below sits a fan of four small
+   veined leaves.
+12. **The introduction shares the contents page**, set under the list in a
+   narrower measure so it reads as front matter rather than as a service. It is
+   a heading, not a section, so it takes no line in the contents.
+13. **Padding is configurable.** `PAD` defaults to 2, the pairs a duplex press
+   produces, which is all a trimmed or glued book needs; `PAD=4` pads to whole
+   folded sheets for stapling.
 
 ## Build
 
@@ -99,9 +110,9 @@ held in `edinburgh-orthodox.org.uk`, and is converted to greyscale here.
 ./build.sh imposed      # then A4 sheets in fold order
 ```
 
-Two passes settle the contents, then the run is padded to a whole number of
-sheets, then `tools/check_headings.py` reads the PDF back and fails on any
-heading left with fewer than two lines under it at the foot of a page.
+Two passes settle the contents, then the run is padded to a multiple of `PAD`
+pages, then `tools/check_headings.py` reads the PDF back and fails on any heading
+left with fewer than two lines under it at the foot of a page.
 
 ## Non-goals
 

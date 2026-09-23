@@ -27,18 +27,24 @@ pages() {
     sed 's/.*(\([0-9]*\) page/\1/' | tail -1
 }
 
-# Two passes settle the contents; then pad to a whole sheet, repeating in case
-# the added leaf moves a heading and changes the page count again.
+# The run is padded up to a multiple of PAD pages. A glued or otherwise trimmed
+# book only needs the pairs a duplex press produces, so the default is 2 and the
+# run carries at most one blank leaf. PAD=4 pads to whole folded sheets, which a
+# stapled booklet needs: `PAD=4 ./build.sh`.
+PAD=${PAD:-2}
+
+# Two passes settle the contents; then pad, repeating in case the added leaf
+# moves a heading and changes the page count again.
 echo "pass 1"; pass 0
 echo "pass 2"; pass 0
 for _ in 1 2 3; do
   n=$(pages)
-  pad=$(( (4 - n % 4) % 4 ))
+  pad=$(( (PAD - n % PAD) % PAD ))
   [ "$pad" -eq 0 ] && break
   echo "pad by $pad (from $n pages)"; pass "$pad"
 done
 n=$(pages)
-[ $(( n % 4 )) -eq 0 ] || { echo "error: $n pages is not a whole number of sheets" >&2; exit 1; }
+[ $(( n % PAD )) -eq 0 ] || { echo "error: $n pages is not a multiple of $PAD" >&2; exit 1; }
 echo "  build/$JOB.pdf ($n pages)"
 
 if [ "${1:-}" = imposed ]; then

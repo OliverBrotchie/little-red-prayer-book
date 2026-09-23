@@ -43,27 +43,59 @@
   \hspace*{\fill}\par
 }
 
-% A plume over a circle with a leaf either side, drawn upward from a rule. The
-% bristles start inside the circle rather than at its crown, so they read as
-% coming out of it, and the leaves sweep away from behind it. The leaf teeth are
-% points on the leaf's own outline, so no stroke ends float free.
-% #1 is the coordinate where it sits on the rule.
+% A thistle head above a rule: a leaf either side, a stem, a calyx and a plume of
+% florets opening above it. The leaves carry a vein, the calyx a ring of dots,
+% and the plume ribs curving out to its edge.
+% #1 is the coordinate where the stem meets the rule.
 \newcommand{\plumeornament}[1]{%
   \begin{scope}[shift={(#1)}]
     \foreach \sx in {1, -1}{%
-      \draw[line width=0.4pt, xscale=\sx, yshift=-0.9mm]
-        (0.31mm,0.55mm) -- (1.00mm,0.79mm) -- (1.53mm,1.52mm) -- (2.40mm,1.43mm)
-        -- (2.98mm,2.03mm) -- (3.89mm,1.93mm) -- (4.56mm,2.33mm) -- (5.39mm,2.41mm)
-        -- (5.75mm,2.54mm) -- (5.47mm,2.28mm) -- (4.94mm,1.61mm) -- (4.21mm,1.29mm)
-        -- (3.67mm,0.51mm) -- (2.80mm,0.48mm) -- (2.21mm,-0.21mm) -- (1.29mm,-0.01mm)
-        -- (0.58mm,-0.27mm) -- cycle;}
-    \draw[line width=0.4pt] (0,0) -- (0,1.2mm);
-    \draw[line width=0.4pt] (0,2.6mm) circle (1.4mm);
-    \begin{scope}[shift={(0,2.6mm)}]
-      \foreach \a in {30, 45, ..., 150}{%
-        \draw[line width=0.3pt] (\a:1.0mm)
-          -- (\a:{1.0mm+2.3mm*(0.86+0.14*cos(\a-90))});}
+      \draw[line width=0.4pt, xscale=\sx]
+        (0,0) .. controls (1.00mm,0.10mm) and (2.00mm,0.45mm) .. (2.80mm,1.05mm)
+              .. controls (2.25mm,2.05mm) and (1.00mm,1.15mm) .. (0,0);
+      \draw[line width=0.3pt, xscale=\sx]
+        (0,0) .. controls (1.02mm,0.59mm) and (2.00mm,1.01mm) .. (2.70mm,1.03mm);}
+    \draw[line width=1pt] (0,0) -- (0,1.4mm);
+    \draw[line width=0.4pt] (0,2.8mm) circle (1.4mm);
+    \begin{scope}[shift={(0,2.8mm)}]
+      \clip (0,0) circle (1.4mm);
+      \foreach \y in {-1.2mm, -0.3mm, 0.6mm}{%
+        \foreach \x in {-1.5mm, -0.75mm, 0mm, 0.75mm, 1.5mm}{%
+          \draw[line width=0.3pt] (\x,\y) arc (200:340:0.36mm);}}
+      \foreach \y in {-0.75mm, 0.15mm, 1.05mm}{%
+        \foreach \x in {-1.13mm, -0.38mm, 0.38mm, 1.13mm}{%
+          \draw[line width=0.3pt] (\x,\y) arc (200:340:0.36mm);}}
     \end{scope}
+    \begin{scope}[shift={(0,2.8mm)}]
+      \draw[line width=0.4pt] (108:1.4mm)
+        .. controls (-1.4mm,1.7mm) and (-1.9mm,2.4mm) .. (-1.9mm,2.9mm)
+        .. controls (-1.9mm,3.3mm) and (-1.0mm,3.5mm) .. (0,3.5mm)
+        .. controls (1.0mm,3.5mm) and (1.9mm,3.3mm) .. (1.9mm,2.9mm)
+        .. controls (1.9mm,2.4mm) and (1.4mm,1.7mm) .. (72:1.4mm)
+        arc (72:108:1.4mm);
+      \foreach \sx in {1, -1}{%
+        \draw[line width=0.25pt, xscale=\sx] (108:1.4mm)
+          .. controls (-1.2mm,1.8mm) and (-1.6mm,2.6mm) .. (-1.1mm,3.1mm);
+        \draw[line width=0.25pt, xscale=\sx] (99:1.4mm)
+          .. controls (-0.6mm,1.9mm) and (-0.7mm,2.8mm) .. (-0.35mm,3.4mm);}
+      \draw[line width=0.25pt] (90:1.4mm)
+        .. controls (0,2.2mm) and (0,2.9mm) .. (0,3.45mm);
+    \end{scope}
+  \end{scope}
+}
+
+% A fan of four small leaves below a rule: four blades sharing a base on the
+% rule. The blades are narrower than petals and each carries a vein, which is
+% what keeps the group reading as leaves rather than a flower.
+% #1 is the coordinate where the fan meets the rule; #2 is a transform,
+% yscale=1 for a fan above a rule and yscale=-1 for one below it.
+\newcommand{\leaffanornament}[2]{%
+  \begin{scope}[shift={(#1)}, #2]
+    \foreach \a in {-48, -16, 16, 48}{%
+      \draw[line width=0.4pt, rotate=\a]
+        (0,0) .. controls (0.6mm,0.8mm) and (0.6mm,2.1mm) .. (0,2.9mm)
+              .. controls (-0.6mm,2.1mm) and (-0.6mm,0.8mm) .. (0,0);
+      \draw[line width=0.3pt, rotate=\a] (0,0) -- (0,2.65mm);}
   \end{scope}
 }
 % the same rule, printed only if the page has room for it. Used to close the
