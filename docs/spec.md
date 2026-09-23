@@ -33,8 +33,8 @@ likely to pray at home, in a form cheap enough to give away.
 1. Title page, "Little Red Prayer Book", with a line-and-star flair above the
    subtitle "St Andrew's Orthodox Community Edinburgh".
 2. Icon of Saint Andrew the First-Called, full page and greyscale, between a top
-   rule carrying a plume over a circle and a plain bottom rule. No rule runs
-   down either side.
+   rule carrying a plume over a small circle on a stem, with a leaf to either
+   side, and a plain bottom rule. No rule runs down either side.
 3. Contents.
 4. Morning Prayers (p. 4).
 5. Small Compline (p. 13).
@@ -89,7 +89,8 @@ held in `edinburgh-orthodox.org.uk`, and is converted to greyscale here.
 11. **The icon plate is one TikZ picture.** The rules and the ornament share a
    coordinate space, so they line up without an overlay pass. TikZ is the only
    drawing package in the book, and it draws nothing else. The ornament is a
-   plume over a circle, drawn as bristles out of the circle's head.
+   stem, a circle, bristles rising from an arc inside the circle, and a serrated
+   leaf to either side.
 
 ## Build
 

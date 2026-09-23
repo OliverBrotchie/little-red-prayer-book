@@ -66,6 +66,7 @@ _Avoid_: signature
 
 **Icon plate**:
 The full-page greyscale icon of Saint Andrew the First-Called after the title
-page, between a top rule carrying a plume over a circle and a plain bottom rule.
-It carries no heading and no contents entry.
+page, between a top rule carrying a plume over a small circle on a stem, with a
+leaf to either side, and a plain bottom rule. It carries no heading and no
+contents entry.
 _Avoid_: frontispiece, image, illustration

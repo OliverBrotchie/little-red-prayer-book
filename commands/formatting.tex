@@ -43,15 +43,27 @@
   \hspace*{\fill}\par
 }
 
-% A plume over a circle, drawn upward from a rule: the bristles fan out of the
-% top of the circle, whose longer middle gives the plume a rounded head rather
-% than a starburst, and the circle sits on the rule.
+% A plume over a circle with a leaf either side, drawn upward from a rule. The
+% bristles start inside the circle rather than at its crown, so they read as
+% coming out of it, and the leaves sweep away from behind it. The leaf teeth are
+% points on the leaf's own outline, so no stroke ends float free.
 % #1 is the coordinate where it sits on the rule.
 \newcommand{\plumeornament}[1]{%
   \begin{scope}[shift={(#1)}]
-    \draw[line width=0.4pt] (0,1.9mm) circle (1.9mm);
-    \foreach \a in {24, 35, ..., 156}{%
-      \draw[line width=0.3pt] (0,3.8mm) -- ++(\a:{3mm*(0.84+0.16*cos(\a-90))});}
+    \foreach \sx in {1, -1}{%
+      \draw[line width=0.4pt, xscale=\sx, yshift=-0.9mm]
+        (0.31mm,0.55mm) -- (1.00mm,0.79mm) -- (1.53mm,1.52mm) -- (2.40mm,1.43mm)
+        -- (2.98mm,2.03mm) -- (3.89mm,1.93mm) -- (4.56mm,2.33mm) -- (5.39mm,2.41mm)
+        -- (5.75mm,2.54mm) -- (5.47mm,2.28mm) -- (4.94mm,1.61mm) -- (4.21mm,1.29mm)
+        -- (3.67mm,0.51mm) -- (2.80mm,0.48mm) -- (2.21mm,-0.21mm) -- (1.29mm,-0.01mm)
+        -- (0.58mm,-0.27mm) -- cycle;}
+    \draw[line width=0.4pt] (0,0) -- (0,1.2mm);
+    \draw[line width=0.4pt] (0,2.6mm) circle (1.4mm);
+    \begin{scope}[shift={(0,2.6mm)}]
+      \foreach \a in {30, 45, ..., 150}{%
+        \draw[line width=0.3pt] (\a:1.0mm)
+          -- (\a:{1.0mm+2.3mm*(0.86+0.14*cos(\a-90))});}
+    \end{scope}
   \end{scope}
 }
 % the same rule, printed only if the page has room for it. Used to close the

@@ -36,7 +36,8 @@ python3 tools/check_headings.py build/little-red-prayer-book.pdf     # no strand
 
 Every service begins on a fresh page. The icon page carries no heading and no
 entry in the contents. The icon sits between a top rule carrying a plume over a
-circle and a plain bottom rule. The book ends with the
+small circle on a stem, with a leaf to either side, and a plain bottom rule. The
+book ends with the
 line-and-star flair, printed only when the last page has room for it, so a
 decoration never costs a page.
 
