@@ -43,6 +43,20 @@
   \hspace*{\fill}\par
 }
 
+% A five petal flower with a leaf to either side, drawn outward from a rule.
+% #1 is the coordinate where the flower sits on the rule; #2 is a transform,
+% yscale=1 for the top rule and yscale=-1 to mirror it for the bottom.
+\newcommand{\floralornament}[2]{%
+  \foreach \a in {-38, -19, 0, 19, 38}{%
+    \draw[line width=0.4pt, shift={(#1)}, #2, rotate=\a]
+      (0,0) .. controls (1.05mm,1.3mm) and (1.25mm,3.5mm) .. (0,4.4mm)
+            .. controls (-1.25mm,3.5mm) and (-1.05mm,1.3mm) .. (0,0);}%
+  \foreach \sx in {1, -1}{%
+    \draw[line width=0.4pt, shift={(#1)}, #2, xscale=\sx]
+      (0,0) .. controls (2.2mm,0.1mm) and (4mm,0.9mm) .. (5.4mm,2.4mm)
+            .. controls (3.4mm,2.6mm) and (1.6mm,1.1mm) .. (0,0);}%
+  \fill[shift={(#1)}, #2] (0,0) circle (0.45mm);%
+}
 % the same rule, printed only if the page has room for it. Used to close the
 % book: a decoration must not push the run onto another page, nor be left alone
 % on a page of its own, so where there is no room it is simply not printed.
