@@ -36,8 +36,8 @@ python3 tools/check_headings.py build/little-red-prayer-book.pdf     # no strand
 
 Every service begins on a fresh page. The icon page carries no heading and no
 entry in the contents, and a line-and-star flair frames the icon above and
-below. The book closes on a plate carrying the same flair, since the last page
-of text runs to the foot and cannot hold it.
+below. The book ends with the same flair, printed only when the last page has
+room for it, so a decoration never costs a page.
 
 ## Layout
 

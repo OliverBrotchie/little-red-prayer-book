@@ -1,8 +1,12 @@
 % Common prayers
 
 \newcommand{\glory}{Glory to the Father, and to the Son, and to the Holy Spirit}
-\newcommand{\bothnow}{both now and for ever, and to the ages of ages. Amen.}
-\newcommand{\glorybothnow}{\glory; \bothnow}
+% The response is capitalised when it stands alone, and lower case when it
+% continues a sentence, as it does after Glory to the Father. One macro holds
+% the words so the two forms cannot drift apart.
+\newcommand{\bothnowtail}{now and for ever, and to the ages of ages. Amen.}
+\newcommand{\bothnow}{Both \bothnowtail}
+\newcommand{\glorybothnow}{\glory; both \bothnowtail}
 \newcommand{\mercy}[1]{Lord, have mercy. \rubric{(x#1)}}
 \newcommand{\throughtheprayers}{Through the prayers of our holy fathers, Lord Jesus Christ, our God, have mercy on us. Amen.}
 

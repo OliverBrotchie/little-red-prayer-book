@@ -13,10 +13,13 @@
 \newcommand{\rubricsize}{\fontsize{8.5}{10.5}\selectfont}
 \newcommand{\rubric}[1]{{\rubricsize\itshape #1}}
 \newcommand{\rubricline}[1]{\par\vspace{0.6em}\rubric{#1}\par\vspace{0.3em}}
-\newcommand{\instruction}[1]{\needspace{6\baselineskip}\rubricline{#1}}
+\newcommand{\instruction}[1]{\needspace{5\baselineskip}\rubricline{#1}}
 % a rubric that introduces a prayer title: reserve for the rubric and for the
 % title's own reserve, so the two never part company across a page break
 \newcommand{\instructionheading}[1]{\needspace{11\baselineskip}\rubricline{#1}}
+% a rubric that closes a block of prayer. Nothing follows that it must stay
+% with, so it reserves its own line alone and may sit at the foot of a page.
+\newcommand{\instructionclosing}[1]{\needspace{2\baselineskip}\rubricline{#1}}
 
 % label over a prayer, kept with the text it introduces
 \newcommand{\theotokion}{\needspace{5\baselineskip}{\headingfont Theotokion}}
@@ -38,4 +41,16 @@
   \par\noindent\hspace*{\fill}%
   \rule{#1\textwidth}{0.4pt}\raisebox{-2.58pt}{\,\footnotesize \ding{85}\,}\rule{#1\textwidth}{0.4pt}%
   \hspace*{\fill}\par
+}
+
+% the same rule, printed only if the page has room for it. Used to close the
+% book: a decoration must not push the run onto another page, nor be left alone
+% on a page of its own, so where there is no room it is simply not printed.
+\newcommand{\ornaruleiffits}[1][0.28]{%
+  \ifdim\pagegoal<\maxdimen
+    \ifdim\dimexpr\pagegoal-\pagetotal\relax>2.5\baselineskip
+      \vspace{1em}%
+      \ornarule[#1]%
+    \fi
+  \fi
 }

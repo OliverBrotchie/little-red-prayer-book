@@ -39,8 +39,8 @@ likely to pray at home, in a form cheap enough to give away.
 5. Small Compline (p. 13).
 6. Preparation for Holy Communion (p. 26), whose canon of preparation carries
    its ode numbers: Ode 1, 3, 4, 5, 6, Kontakion, 7, 8, 9.
-7. Thanksgiving after Holy Communion (p. 47).
-8. Closing plate: the flair alone, since the last page of text runs to the foot.
+7. Thanksgiving after Holy Communion (p. 47), which closes with the flair where
+   the last page has room for it.
 
 ## Sources
 
@@ -79,6 +79,12 @@ held in `edinburgh-orthodox.org.uk`, and is converted to greyscale here.
    calls after the package loads. Geometry places the running header from the
    values it sees when it loads, so a later `\setlength` moves the body up into
    the header and clips it at the trim.
+9. **The closing flair is conditional.** It is printed only when the page that
+   ends the text has room for it, so the decoration can neither push the run
+   onto another page nor sit alone on one.
+10. **"Both now and for ever" is capitalised where it stands alone** and lower
+   case where it follows Glory to the Father in one sentence. One macro holds
+   the words, so the two forms cannot drift apart.
 
 ## Build
 
