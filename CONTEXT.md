@@ -48,8 +48,9 @@ the heading levels differ by weight rather than colour.
 _Avoid_: monochrome, greyscale (the icon is greyscale, the book is one ink)
 
 **Introduction**:
-The note on prayer set under the contents list, on the contents page. It is a
-heading rather than a section, so it takes no line in the contents.
+The note on prayer on the contents page, set under the list in a narrower
+measure. It is a heading rather than a section, so its contents line is added by
+hand, which puts it at the head of the list.
 _Avoid_: preface, foreword, note
 
 **Flair**:

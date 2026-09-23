@@ -85,6 +85,11 @@
 \input{sections/title.tex}
 \input{sections/icon.tex}
 
+% The introduction is a heading rather than a section, so it takes its contents
+% line by hand. This call has to come before the list is typeset, which puts it
+% at the head of the list, on the page the list itself sits on.
+\addcontentsline{toc}{section}{Introduction}
+
 {\small\tableofcontents}
 \thispagestyle{plain}
 

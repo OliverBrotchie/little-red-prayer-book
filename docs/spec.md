@@ -98,7 +98,8 @@ edition. It quotes Saint John Chrysostom on prayer.
    veined leaves.
 12. **The introduction shares the contents page**, set under the list in a
    narrower measure so it reads as front matter rather than as a service. It is
-   a heading, not a section, so it takes no line in the contents.
+   a heading rather than a section, so its contents line is added by hand, which
+   puts it at the head of the list, on the page the list sits on.
 13. **Padding is configurable.** `PAD` defaults to 2, the pairs a duplex press
    produces, which is all a trimmed or glued book needs; `PAD=4` pads to whole
    folded sheets for stapling.
