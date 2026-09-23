@@ -42,19 +42,23 @@ n=$(pages)
 echo "  build/$JOB.pdf ($n pages)"
 
 if [ "${1:-}" = imposed ]; then
-  # A4 landscape sheets, two A6 pages per side, 16-page signatures, fold order.
+  # A4 landscape sheets, two A6 pages per side, in fold order for a stapled
+  # booklet. SIGNATURE sets the pages per signature and defaults to the whole
+  # run, which pads nothing; set it lower for thinner signatures, at the cost
+  # of blank pages to fill the last one.
   local_sheet=${SHEET:-a4paper}
+  sig=${SIGNATURE:-$(pages)}
   cat > "$OUT/impose.tex" <<EOF
 \\documentclass[${local_sheet},landscape]{article}
 \\usepackage{pdfpages}
 \\begin{document}
-\\includepdf[pages=-,signature=16,nup=2x1,frame=false]{$(pwd)/$OUT/$JOB.pdf}
+\\includepdf[pages=-,signature=${sig},nup=2x1,frame=false]{$(pwd)/$OUT/$JOB.pdf}
 \\end{document}
 EOF
   $LATEX -interaction=nonstopmode -halt-on-error -jobname=$JOB-imposed \
     -output-directory="$OUT" "$OUT/impose.tex" >/dev/null
   rm -f "$OUT/impose.tex" "$OUT/impose.log" "$OUT/impose.aux"
-  echo "  build/$JOB-imposed.pdf ($local_sheet spreads, for a printer who wants sheets)"
+  echo "  build/$JOB-imposed.pdf ($local_sheet sheets, $sig pages per signature)"
 fi
 
 # no heading may be left stranded at the foot of a page
