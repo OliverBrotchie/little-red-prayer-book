@@ -48,10 +48,10 @@ the heading levels differ by weight rather than colour.
 _Avoid_: monochrome, greyscale (the icon is greyscale, the book is one ink)
 
 **Flair**:
-The ornament of a line, a star and a line that marks the title page, frames the
-icon above and below, and closes the book. Held in `commands/formatting.tex` as
-`\ornarule`, whose optional argument sets how much of the text width each line
-takes, and as `\ornaruleiffits`, which prints it only where the page has room.
+The ornament of a line, a star and a line that marks the title page and closes
+the book. Held in `commands/formatting.tex` as `\ornarule`, whose optional
+argument sets how much of the text width each line takes, and as
+`\ornaruleiffits`, which prints it only where the page has room.
 _Avoid_: rule, divider, ornament, dingbat
 
 **Division label**:

@@ -32,8 +32,8 @@ likely to pray at home, in a form cheap enough to give away.
 
 1. Title page, "Little Red Prayer Book", with a line-and-star flair above the
    subtitle "St Andrew's Orthodox Community Edinburgh".
-2. Icon of Saint Andrew the First-Called, full page and greyscale, framed by a
-   flair above and below.
+2. Icon of Saint Andrew the First-Called, full page and greyscale, inside a
+   double rule border.
 3. Contents.
 4. Morning Prayers (p. 4).
 5. Small Compline (p. 13).

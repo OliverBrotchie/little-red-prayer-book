@@ -1,12 +1,13 @@
-% Icon of Saint Andrew the First-Called (no title, centred, framed by a flair)
+% Icon of Saint Andrew the First-Called: no title, centred, in a double rule
+% border. The two rules come from nested boxes, which need nothing beyond the
+% box primitives already in use. The inner rule is set at zero separation so the
+% gap is the outer box's \fboxsep alone.
 \thispagestyle{empty}
 \vspace*{\fill}
-\ornarule[0.4]
-\vspace{5mm}
 \begin{center}
-\includegraphics[width=78mm]{assets/icon.jpg}
+{\setlength{\fboxrule}{1pt}\setlength{\fboxsep}{3.5mm}%
+  \fbox{\setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{0pt}%
+    \fbox{\includegraphics[width=68mm]{assets/icon.jpg}}}}
 \end{center}
-\vspace{5mm}
-\ornarule[0.4]
 \vspace*{\fill}
 \newpage
